@@ -11,6 +11,11 @@ export class BooksController {
     return this.booksService.findAll();
   }
 
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.booksService.findOne(id);
+  }
+
   @Post()
   create(@Body() createBookDto: CreateBookDto) {
     return this.booksService.create(createBookDto);

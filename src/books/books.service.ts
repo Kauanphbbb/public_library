@@ -19,4 +19,9 @@ export class BooksService {
     const book = this.booksRepository.create(createBookDto);
     return this.booksRepository.save(book);
   }
+
+  findOne(id: string) {
+    const book = this.booksRepository.findOneBy({ id });
+    return book;
+  }
 }
