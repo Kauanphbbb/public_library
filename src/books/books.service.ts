@@ -24,4 +24,8 @@ export class BooksService {
     const book = this.booksRepository.findOneBy({ id });
     return book;
   }
+
+  delete(id: string) {
+    return this.booksRepository.delete(id);
+  }
 }
