@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { BooksService } from './books.service';
 import { CreateBookDto } from './dtos/create-book.dto';
+import { UpdateBookDto } from './dtos/update-book.dto';
 
 @Controller('books')
 export class BooksController {
@@ -33,5 +34,11 @@ export class BooksController {
   delete(@Param('id') id: string) {
     this.booksService.delete(id);
     return { message: 'Book deleted' };
+  }
+
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateBookDto: UpdateBookDto) {
+    this.booksService.update({ id, updateBookDto });
+    return { message: 'Book Updated' };
   }
 }
