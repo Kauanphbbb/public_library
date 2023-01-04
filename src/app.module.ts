@@ -4,6 +4,7 @@ import { DataSource } from 'typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BooksModule } from './books/books.module';
+import { StudentsModule } from './students/students.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { BooksModule } from './books/books.module';
       synchronize: false,
     }),
     BooksModule,
+    StudentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
